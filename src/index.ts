@@ -277,6 +277,6 @@ let objetAvecPropsAleatoires = {
 type ResponseApi = {
     attributes: {},
     meta : {
-        [key: string]: unknown
+        [key: string]: unknown //la clé est de type string mais on ne connait pas le type des valeurs
     }
 }
