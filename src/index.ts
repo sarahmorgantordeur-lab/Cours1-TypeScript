@@ -245,7 +245,7 @@ type User ={
 let user1 : User = {
     firstName: "Amaury",
     lastName: "Dupont",
-}; //email optionnel donc on ne doit pas nécessairement le mettre
+}; //email optionnel donc on ne doit pas nécessairement le mettre, ça retourne undefined si on l'appelle
 
 let user2 : User = {
     firstName: "Marie",
@@ -254,3 +254,29 @@ let user2 : User = {
 };
 
 console.log(user1, user2);
+
+
+
+
+
+//---------------------------------------------------------------------------------//
+//objet avec des propriétés aléatoires
+
+type ObjetPartiel = {
+    name: string,
+    [key: string]: unknown //propriétés aléatoires avec des clés de type string et des valeurs de type unknown
+}
+
+let objetAvecPropsAleatoires = {
+    name: 'Sarah',
+    truc: 42,
+    bidule:true
+}
+
+//exemple d'utilisation :
+type ResponseApi = {
+    attributes: {},
+    meta : {
+        [key: string]: unknown
+    }
+}
