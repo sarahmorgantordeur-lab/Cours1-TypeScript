@@ -109,12 +109,49 @@ anything.test; //pas d'erreur même si test n'existe pas sur string
 //---------------------------------------------------------------------------------//
 //casting : Le casting permet de convertir une valeur d'un type vers un autre. (Lorsque ils sont compatibles)
 let variableCast;
-console.log(variableCast.toFixed());
-function logAnyThing(param) {
-    param.toUpperCase();
-}
+// console.log((variableCast as number).toFixed()); //ça crache puisque undefined, normal
+// function logAnyThing(param: unknown) {
+//     (param as string).toUpperCase();
+// }
 const main = async () => {
     const fetchResult = await fetch('https://google.com');
     const js = await fetchResult.json(); //type any
 }; //dans la dernière version, pas besoin de faire une fonction asynchrone pour utiliser await dans le main
+//mauvaise pratique :
+//variableCast?.toString(); //ça peut crasher si variableCast est undefined
+//variableCast!.toString(); //le ! dit au code que je suis sûre que cette variable est déclarée, assez dangereux car parfois on en abuse car on a la flemme de faire des if, il assure que la variable n'est ni nulle ni undefined ici
+let Amaury = "Amaury"; //vient préciser encore plus au compilateur le type de variable (donc une chaine de aractères de 6 lettre qui commence par A, etc)
+let role = "Admin";
+let role1 = "Utilisateur";
+role1 = role; //erreur car role est de type string et pas Role si on n'a pas mis 'as const' ligne 196
+//ici, soit on cast et donc il va vérifier et ça passe, soit on met le 'as const'
+//---------------------------------------------------------------------------------//
+//promises : En TypeScript, le type `Promise` est utilisé pour représenter une opération asynchrone qui peut se terminer avec une valeur ou une erreur.
+async function add(a, b) {
+    return a + b;
+} //comment typer une promesse
+//---------------------------------------------------------------------------------//
+//objets :
+let obj = {
+    name: "Sarah"
+};
+//le type objet est générique qui indique que c'est un objet et ici avec une propriété nom
+let obj1 = {
+    name: "Sarah"
+}; //ici le typage s'est fait, on peut faire .name, c'est implicite
+let obj2 = {
+    name: "Sarah",
+    date: new Date(),
+    age: 25
+}; //ici on a créé notre propre type d'objet
+let user1 = {
+    firstName: "Amaury",
+    lastName: "Dupont",
+}; //email optionnel donc on ne doit pas nécessairement le mettre
+let user2 = {
+    firstName: "Marie",
+    lastName: "Curie",
+    email: "marie.curie@gmail.com"
+};
+console.log(user1, user2);
 export {};

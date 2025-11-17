@@ -163,16 +163,21 @@ anything.test; //pas d'erreur même si test n'existe pas sur string
 
 
 //retenir : any pas bien, unknown bien
+
+
+
+
+
 //---------------------------------------------------------------------------------//
 
 //casting : Le casting permet de convertir une valeur d'un type vers un autre. (Lorsque ils sont compatibles)
 
 let variableCast :  number | string | undefined;
-console.log((variableCast as number).toFixed()); //ça crache puisque undefined, normal
+// console.log((variableCast as number).toFixed()); //ça crache puisque undefined, normal
 
-function logAnyThing(param: unknown) {
-    (param as string).toUpperCase();
-}
+// function logAnyThing(param: unknown) {
+//     (param as string).toUpperCase();
+// }
 
 const main = async () => {
     const fetchResult = await fetch('https://google.com');
@@ -180,9 +185,9 @@ const main = async () => {
 } //dans la dernière version, pas besoin de faire une fonction asynchrone pour utiliser await dans le main
 
 //mauvaise pratique :
-variableCast?.toString(); //ça peut crasher si variableCast est undefined
+//variableCast?.toString(); //ça peut crasher si variableCast est undefined
 
-variableCast!.toString(); //le ! dit au code que je suis sûre que cette variable est déclarée, assez dangereux car parfois on en abuse car on a la flemme de faire des if, il assure que la variable n'est ni nulle ni undefined ici
+//variableCast!.toString(); //le ! dit au code que je suis sûre que cette variable est déclarée, assez dangereux car parfois on en abuse car on a la flemme de faire des if, il assure que la variable n'est ni nulle ni undefined ici
 
 let Amaury = "Amaury" as const; //vient préciser encore plus au compilateur le type de variable (donc une chaine de aractères de 6 lettre qui commence par A, etc)
 
@@ -191,7 +196,7 @@ type Role = "Admin" | "Utilisateur";
 let role = "Admin" as const;
 let role1 : Role = "Utilisateur";
 
-role1 = role; //erreur car role est de type string et pas Role si on n'a pas mis 'as const' ligne 191
+role1 = role; //erreur car role est de type string et pas Role si on n'a pas mis 'as const' ligne 196
 //ici, soit on cast et donc il va vérifier et ça passe, soit on met le 'as const'
 
 
@@ -230,3 +235,22 @@ let obj2 : ObjSarah = {
     date: new Date(),
     age: 25
 }; //ici on a créé notre propre type d'objet
+
+type User ={
+    firstName: string,
+    lastName: string,
+    email?: string | undefined
+}; //l'ordre des clés n'a pas d'importance
+
+let user1 : User = {
+    firstName: "Amaury",
+    lastName: "Dupont",
+}; //email optionnel donc on ne doit pas nécessairement le mettre
+
+let user2 : User = {
+    firstName: "Marie",
+    lastName: "Curie",
+    email: "marie.curie@gmail.com"
+};
+
+console.log(user1, user2);
