@@ -16,7 +16,7 @@ let variable : string | number | undefined = 42;
 variable = variable || 42; //si la variable n'est pas définie, on lui assigne 42 pa défaut
 
 //attention, les types doivent être compatibles pour être assignés
-let valeur;
+let valeur : string | number | Date | undefined;
 
 //pas obligé de donner le type, mais déconseillé car alors la valeur est possiblement inexistante
 // valeur.toISOString();
@@ -31,6 +31,8 @@ if (typeof valeur === "string") {
 if (valeur instanceof Date) {
     console.log(valeur.toISOString());
 }
+
+//le type never est un type qui ne contient aucune valeur.
 
 let age2 : number | undefined;
 //age2.toFixed(); erreur possible si age2 est undefined
@@ -101,7 +103,7 @@ function additionInfinie(...parametres : number []) {//tous les paramètre vont 
 }
 
 //tjrs mettre les paramètres de nombre indéfinis doivent être mis en derniers
-function soustractionPasFinie(message : string, ....params : number[]) {
+function soustractionPasFinie(message : string, ...params : number[]) {
 
 }
 

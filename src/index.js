@@ -1,3 +1,4 @@
+"use strict";
 //typage explicite
 let nom = "Sarah";
 let age = 25;
@@ -23,6 +24,7 @@ if (typeof valeur === "string") {
 if (valeur instanceof Date) {
     console.log(valeur.toISOString());
 }
+//le type never est un type qui ne contient aucune valeur.
 let age2;
 //age2.toFixed(); erreur possible si age2 est undefined
 let monTableau = ['a']; //je préise que c'est un tableau de chaine de char
@@ -65,13 +67,16 @@ function addition2(a, b, print) {
     console.log(a + b);
 }
 addition(5, 5, undefined); //il attend un troisème paramètre, on doit absolument préciser si print est undefined ou true ou false dans ce cas ci
-//nombre de paramètre illimité
+//nombre de paramètre illimité grâce à '...parametres :'
 function additionInfinie(...parametres) {
     let a = 0;
     for (const param of parametres) { //dans foreach l'index est passé en plus automatiquement
         a += a + param;
     }
     return a;
+}
+//tjrs mettre les paramètres de nombre indéfinis doivent être mis en derniers
+function soustractionPasFinie(message, ...params) {
 }
 const result = additionInfinie(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5);
 console.log(result);
