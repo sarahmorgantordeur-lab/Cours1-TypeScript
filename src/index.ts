@@ -110,7 +110,7 @@ function soustractionPasFinie(message : string, ...params : number[]) {
 const result = additionInfinie(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5);
 
 
-
+//---------------------------------------------------------------------------------//
 
 //tuples : tableau avec un nombre fixe d'éléments avec des types précis
 
@@ -133,3 +133,18 @@ export type ExcellRowValue = number | string; //donner une signification au type
 type ComputeFunction = (a: number, b:number) => number;
 
 //le typescript n'a normalement aucun impact sur le js, si on change le nom du type d'une variable en ts, ça ne bouge pas en js. donc le fait le changer juste le type n'a normalement pas 'impact sur le code exécuté.
+
+
+//---------------------------------------------------------------------------------//
+//types unknown, never et any :
+
+function log(trucALogger: unknown) { //on dit qu'on ne connait pas le type de ce qu'on reçoit
+    //c'est donc à nous d'affiner son type dans la fonction
+    if (typeof trucALogger === "string") {
+        console.log("C'est un string");
+    } else if (typeof trucALogger === "number") {
+        console.log("C'est un number");
+    } else {
+        console.log("Type non géré");
+    }
+}
