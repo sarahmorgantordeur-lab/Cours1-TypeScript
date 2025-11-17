@@ -39,3 +39,7 @@ function diffArray(one, two) {
     }
     return arr;
 }
+const result1 = diff([1, 2, 3, 4]);
+console.log(result1); // Output: [1, 3]
+const result2 = diffArray([10, 20, 30, 40, 50], [20, 50, 60]);
+console.log(result2); // Output: [10, 30, 40]

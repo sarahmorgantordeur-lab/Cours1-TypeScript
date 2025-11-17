@@ -6,7 +6,7 @@
  * Released under the MIT License.
  */
 'use strict';
-function diff(arr : number[]) {
+function diff(arr : number[]) : number[]{
     let len : number = arguments.length;
     let idx : number = 0;
     while (++idx < len) {
@@ -16,7 +16,7 @@ function diff(arr : number[]) {
 }
 ;
 
-function diffArray(one : number[], two : number[]) {
+function diffArray(one : number[], two : number[]) : number[] {
     if (!Array.isArray(two)) {
         return one.slice();
     }
@@ -40,3 +40,10 @@ function diffArray(one : number[], two : number[]) {
     }
     return arr;
 }
+
+
+const result1 : Array<number> = diff([1, 2, 3, 4]);
+console.log(result1); // Output: [1, 2, 3, 4]
+
+const result2 : Array<number> = diffArray([10, 20, 30, 40, 50], [20, 50, 60]);
+console.log(result2); // Output: [10, 30, 40]
