@@ -194,6 +194,9 @@ let role1 : Role = "Utilisateur";
 role1 = role; //erreur car role est de type string et pas Role si on n'a pas mis 'as const' ligne 191
 //ici, soit on cast et donc il va vérifier et ça passe, soit on met le 'as const'
 
+
+
+
 //---------------------------------------------------------------------------------//
 //promises : En TypeScript, le type `Promise` est utilisé pour représenter une opération asynchrone qui peut se terminer avec une valeur ou une erreur.
 
@@ -202,3 +205,28 @@ Promise<number>{
     return a + b;
 } //comment typer une promesse
 
+
+
+
+//---------------------------------------------------------------------------------//
+//objets :
+let obj : Object = {
+    name: "Sarah"
+};
+//le type objet est générique qui indique que c'est un objet et ici avec une propriété nom
+
+let obj1 = {
+    name: "Sarah"
+}; //ici le typage s'est fait, on peut faire .name, c'est implicite
+
+type ObjSarah = {
+    name: string,
+    date: Date,
+    age: number
+}
+
+let obj2 : ObjSarah = {
+    name: "Sarah",
+    date: new Date(),
+    age: 25
+}; //ici on a créé notre propre type d'objet
