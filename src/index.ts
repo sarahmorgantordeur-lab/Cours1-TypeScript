@@ -66,7 +66,7 @@ let maFonction : (a: number) => void = (a) => { //il faut préciser le a dans le
     console.log("Coucou", a);
 }
 
-maFonction(42); 
+//maFonction(42); 
 
 //automatiquement mon this et typé, this donne le context de la fonction
 function monAutreFonction(this : HTMLButtonElement) { //différence avec le mot clé this, les flèchées sont anonymes sans contexte, ici on peut utiliser le this
@@ -81,15 +81,15 @@ function addition(a : number, b : number, print?: boolean) {
     return a+b;
 }
 
-addition(5,5, true);
-addition(5,5); //print est optionnel
+//addition(5,5, true);
+//addition(5,5); //print est optionnel
 
 function addition2(a : number, b : number, print : boolean | undefined) {
     console.log(a+b);
 }
 
 
-addition (5, 5, undefined); //il attend un troisème paramètre, on doit absolument préciser si print est undefined ou true ou false dans ce cas ci
+//addition (5, 5, undefined); //il attend un troisème paramètre, on doit absolument préciser si print est undefined ou true ou false dans ce cas ci
 
 
 
@@ -108,4 +108,24 @@ function soustractionPasFinie(message : string, ...params : number[]) {
 }
 
 const result = additionInfinie(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5);
-console.log(result);
+
+
+
+
+//tuples : tableau avec un nombre fixe d'éléments avec des types précis
+
+const tuple : [string, number] = ["Sarah", 25];
+//le tuple est ordonné, on ne peut pas inverser les types
+
+const coord : [number, number] = [0.255, 1.58]; //chouette aussi pour les coordonnées
+
+//tuple avec un nombre variable d'éléments
+const tuple2 : [string, ...number[]] = ["Sarah", 25, 30, 35, 40]; //le premier élément est une string et le reste des nombres
+
+
+//déclarer un type nous-même
+type Vectore2D = [number, number];
+
+export type ExcellRowValue = number | string; //donner une signification au type que l'on veut donner
+//avec l'export, on peut l'importer dans un autre fichier, ici par exemple les coordonnées d'un vecteur en 2D, souvent utilisé pour les jeux vidéos
+// syntaxe : import { Vectore2D } from './chemin/du/fichier';
