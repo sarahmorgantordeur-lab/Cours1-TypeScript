@@ -194,3 +194,11 @@ let role1 : Role = "Utilisateur";
 role1 = role; //erreur car role est de type string et pas Role si on n'a pas mis 'as const' ligne 191
 //ici, soit on cast et donc il va vérifier et ça passe, soit on met le 'as const'
 
+//---------------------------------------------------------------------------------//
+//promises : En TypeScript, le type `Promise` est utilisé pour représenter une opération asynchrone qui peut se terminer avec une valeur ou une erreur.
+
+async function add(a: number, b: number): 
+Promise<number>{
+    return a + b;
+} //comment typer une promesse
+
