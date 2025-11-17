@@ -1,4 +1,3 @@
-"use strict";
 //typage explicite
 let nom = "Sarah";
 let age = 25;
@@ -50,7 +49,7 @@ let tab = [
 let maFonction = (a) => {
     console.log("Coucou", a);
 };
-maFonction(42);
+//maFonction(42); 
 //automatiquement mon this et typé, this donne le context de la fonction
 function monAutreFonction() {
 }
@@ -61,12 +60,12 @@ function addition(a, b, print) {
     }
     return a + b;
 }
-addition(5, 5, true);
-addition(5, 5); //print est optionnel
+//addition(5,5, true);
+//addition(5,5); //print est optionnel
 function addition2(a, b, print) {
     console.log(a + b);
 }
-addition(5, 5, undefined); //il attend un troisème paramètre, on doit absolument préciser si print est undefined ou true ou false dans ce cas ci
+//addition (5, 5, undefined); //il attend un troisème paramètre, on doit absolument préciser si print est undefined ou true ou false dans ce cas ci
 //nombre de paramètre illimité grâce à '...parametres :'
 function additionInfinie(...parametres) {
     let a = 0;
@@ -79,4 +78,11 @@ function additionInfinie(...parametres) {
 function soustractionPasFinie(message, ...params) {
 }
 const result = additionInfinie(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5);
-console.log(result);
+//tuples : tableau avec un nombre fixe d'éléments avec des types précis
+const tuple = ["Sarah", 25];
+//le tuple est ordonné, on ne peut pas inverser les types
+const coord = [0.255, 1.58]; //chouette aussi pour les coordonnées
+//tuple avec un nombre variable d'éléments
+const tuple2 = ["Sarah", 25, 30, 35, 40]; //le premier élément est une string et le reste des nombres
+export {};
+//le typescript n'a normalement aucun impact sur le js, si on change le nom du type d'une variable en ts, ça ne bouge pas en js. donc le fait le changer juste le type n'a normalement pas 'impact sur le code exécuté.
