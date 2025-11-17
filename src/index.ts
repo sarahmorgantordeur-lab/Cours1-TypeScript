@@ -160,3 +160,22 @@ function log(trucALogger: unknown) { //on dit qu'on ne connait pas le type de ce
 let anything: any = 'bonjour';
 
 anything.test; //pas d'erreur même si test n'existe pas sur string
+
+
+//retenir : any pas bien, unknown bien
+//---------------------------------------------------------------------------------//
+
+//casting : Le casting permet de convertir une valeur d'un type vers un autre. (Lorsque ils sont compatibles)
+
+let variableCast :  number | string | undefined;
+console.log((variableCast as number).toFixed()); //ça crache puisque undefined, normal
+
+function logAnyThing(param: unknown) {
+    (param as string).toUpperCase();
+}
+
+const main = async () => {
+    const fetchResult = await fetch('https://google.com');
+    const js = await fetchResult.json() as string; //type any
+} //dans la dernière version, pas besoin de faire une fonction asynchrone pour utiliser await dans le main
+

@@ -1,6 +1,7 @@
 {
     "include": ["src/*.ts"],
     "compilerOptions": {
+        "outDir":"dist", //je vais mettre mes fichiers compilé dans dist
         "target": "esnext",
         "strict": true,
     }   

@@ -78,11 +78,43 @@ function additionInfinie(...parametres) {
 function soustractionPasFinie(message, ...params) {
 }
 const result = additionInfinie(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5);
+//---------------------------------------------------------------------------------//
 //tuples : tableau avec un nombre fixe d'éléments avec des types précis
 const tuple = ["Sarah", 25];
 //le tuple est ordonné, on ne peut pas inverser les types
 const coord = [0.255, 1.58]; //chouette aussi pour les coordonnées
 //tuple avec un nombre variable d'éléments
 const tuple2 = ["Sarah", 25, 30, 35, 40]; //le premier élément est une string et le reste des nombres
-export {};
 //le typescript n'a normalement aucun impact sur le js, si on change le nom du type d'une variable en ts, ça ne bouge pas en js. donc le fait le changer juste le type n'a normalement pas 'impact sur le code exécuté.
+//---------------------------------------------------------------------------------//
+//types unknown, never et any :
+function log(trucALogger) {
+    //c'est donc à nous d'affiner son type dans la fonction
+    if (typeof trucALogger === "string") {
+        console.log("C'est un string");
+    }
+    else if (typeof trucALogger === "number") {
+        console.log("C'est un number");
+    }
+    else {
+        console.log("Type non géré");
+    }
+}
+//never représente un truc qui n'arrive jamais, bcp utilisé pour le testing, never désactive typescript juste à cet endroit là, on fait ça pour pas que ts nous embête, attention il diffère de any
+//any c'est le truant, il désactive toute la vérification de type, à utiliser avec parcimonie, on perd tout l'intérêt de typescript
+//très déconseillé d'utiliser any, mieux de le remplacer par le unknown
+let anything = 'bonjour';
+anything.test; //pas d'erreur même si test n'existe pas sur string
+//retenir : any pas bien, unknown bien
+//---------------------------------------------------------------------------------//
+//casting : Le casting permet de convertir une valeur d'un type vers un autre. (Lorsque ils sont compatibles)
+let variableCast;
+console.log(variableCast.toFixed());
+function logAnyThing(param) {
+    param.toUpperCase();
+}
+const main = async () => {
+    const fetchResult = await fetch('https://google.com');
+    const js = await fetchResult.json(); //type any
+}; //dans la dernière version, pas besoin de faire une fonction asynchrone pour utiliser await dans le main
+export {};
