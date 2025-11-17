@@ -179,3 +179,18 @@ const main = async () => {
     const js = await fetchResult.json() as string; //type any
 } //dans la dernière version, pas besoin de faire une fonction asynchrone pour utiliser await dans le main
 
+//mauvaise pratique :
+variableCast?.toString(); //ça peut crasher si variableCast est undefined
+
+variableCast!.toString(); //le ! dit au code que je suis sûre que cette variable est déclarée, assez dangereux car parfois on en abuse car on a la flemme de faire des if, il assure que la variable n'est ni nulle ni undefined ici
+
+let Amaury = "Amaury" as const; //vient préciser encore plus au compilateur le type de variable (donc une chaine de aractères de 6 lettre qui commence par A, etc)
+
+type Role = "Admin" | "Utilisateur";
+
+let role = "Admin" as const;
+let role1 : Role = "Utilisateur";
+
+role1 = role; //erreur car role est de type string et pas Role si on n'a pas mis 'as const' ligne 191
+//ici, soit on cast et donc il va vérifier et ça passe, soit on met le 'as const'
+
