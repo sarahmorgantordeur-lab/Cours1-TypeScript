@@ -66,7 +66,44 @@ let maFonction : (a: number) => void = (a) => { //il faut préciser le a dans le
 
 maFonction(42); 
 
-
-function monAutreFonction() { //différence avec le mot clé this, les flèchées sont anonymes sans contexte, ici on peut utiliser le this
+//automatiquement mon this et typé, this donne le context de la fonction
+function monAutreFonction(this : HTMLButtonElement) { //différence avec le mot clé this, les flèchées sont anonymes sans contexte, ici on peut utiliser le this
 
 }
+
+//paramètre optionnels :
+function addition(a : number, b : number, print?: boolean) {
+    if (print) {
+        console.log(a+b);
+    }
+    return a+b;
+}
+
+addition(5,5, true);
+addition(5,5); //print est optionnel
+
+function addition2(a : number, b : number, print : boolean | undefined) {
+    console.log(a+b);
+}
+
+
+addition (5, 5, undefined); //il attend un troisème paramètre, on doit absolument préciser si print est undefined ou true ou false dans ce cas ci
+
+
+
+//nombre de paramètre illimité grâce à '...parametres :'
+function additionInfinie(...parametres : number []) {//tous les paramètre vont être passés en tableau, on va pouvoir donc itérer dessus
+    let a = 0;
+    for (const param of parametres) { //dans foreach l'index est passé en plus automatiquement
+        a+= a + param;
+    }
+    return a;
+}
+
+//tjrs mettre les paramètres de nombre indéfinis doivent être mis en derniers
+function soustractionPasFinie(message : string, ....params : number[]) {
+
+}
+
+const result = additionInfinie(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5);
+console.log(result);

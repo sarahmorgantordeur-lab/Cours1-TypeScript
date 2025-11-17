@@ -49,3 +49,29 @@ let maFonction = (a) => {
     console.log("Coucou", a);
 };
 maFonction(42);
+//automatiquement mon this et typé, this donne le context de la fonction
+function monAutreFonction() {
+}
+//paramètre optionnels :
+function addition(a, b, print) {
+    if (print) {
+        console.log(a + b);
+    }
+    return a + b;
+}
+addition(5, 5, true);
+addition(5, 5); //print est optionnel
+function addition2(a, b, print) {
+    console.log(a + b);
+}
+addition(5, 5, undefined); //il attend un troisème paramètre, on doit absolument préciser si print est undefined ou true ou false dans ce cas ci
+//nombre de paramètre illimité
+function additionInfinie(...parametres) {
+    let a = 0;
+    for (const param of parametres) { //dans foreach l'index est passé en plus automatiquement
+        a += a + param;
+    }
+    return a;
+}
+const result = additionInfinie(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5);
+console.log(result);
