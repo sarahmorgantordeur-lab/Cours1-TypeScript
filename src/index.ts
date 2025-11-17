@@ -148,3 +148,15 @@ function log(trucALogger: unknown) { //on dit qu'on ne connait pas le type de ce
         console.log("Type non géré");
     }
 }
+
+//never représente un truc qui n'arrive jamais, bcp utilisé pour le testing, never désactive typescript juste à cet endroit là, on fait ça pour pas que ts nous embête, attention il diffère de any
+
+
+
+//any c'est le truant, il désactive toute la vérification de type, à utiliser avec parcimonie, on perd tout l'intérêt de typescript
+
+//très déconseillé d'utiliser any, mieux de le remplacer par le unknown
+
+let anything: any = 'bonjour';
+
+anything.test; //pas d'erreur même si test n'existe pas sur string
