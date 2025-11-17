@@ -129,3 +129,7 @@ type Vectore2D = [number, number];
 export type ExcellRowValue = number | string; //donner une signification au type que l'on veut donner
 //avec l'export, on peut l'importer dans un autre fichier, ici par exemple les coordonnées d'un vecteur en 2D, souvent utilisé pour les jeux vidéos
 // syntaxe : import { Vectore2D } from './chemin/du/fichier';
+
+type ComputeFunction = (a: number, b:number) => number;
+
+//le typescript n'a normalement aucun impact sur le js, si on change le nom du type d'une variable en ts, ça ne bouge pas en js. donc le fait le changer juste le type n'a normalement pas 'impact sur le code exécuté.
